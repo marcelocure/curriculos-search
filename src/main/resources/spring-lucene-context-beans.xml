@@ -14,10 +14,10 @@
 
 	<bean class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
 		<property name="location" value="classpath:lucene.properties"></property>
-<!-- 		<property name="placeholderPrefix"><value>#[</value></property> -->
-<!--   		<property name="placeholderSuffix"><value>]</value></property> -->
+		<property name="placeholderPrefix"><value>#[</value></property>
+   		<property name="placeholderSuffix"><value>]</value></property>
   	</bean>
   	<bean id="searcher" class="com.ilegra.curriculos.search.Searcher">
-  		<property name="indexPath"><value></value></property>
+  		<property name="indexPath"><value>#[indexpath]</value></property>
   	</bean>
 </beans>

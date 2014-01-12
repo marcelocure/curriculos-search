@@ -1,4 +1,5 @@
 <%@page import="com.ilegra.curriculos.search.Searcher"%>
+<%@page import="com.ilegra.curriculos.spring.GetBeans"%>
 <%@page import="java.util.List"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
@@ -17,7 +18,7 @@
 				out.println("Pesquisa: <input type=text name=search><input type=submit name=Pesquisar>");
 				out.println("</form>");
 			} else if (request.getParameter("search") != null) {
-				Searcher searcher = new Searcher();
+				Searcher searcher = new GetBeans().getSearcher();
 				List<String> result = searcher.search(request.getParameter("search"));
 				for (String url : result) {
 					out.println("<p><a href="+url+" target=_blank>"+url+"</a></p>");
