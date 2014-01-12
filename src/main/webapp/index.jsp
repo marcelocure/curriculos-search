@@ -11,22 +11,19 @@
 <title>ilegra Currículos - Full Text Search</title>
 </head>
 <body>
-	<div class="oauthDemo">
-		<%
-			if (request.getParameter("search") == null) {
-				out.println("<form action=index.jsp>");
-				out.println("Pesquisa: <input type=text name=search><input type=submit name=Pesquisar>");
-				out.println("</form>");
-			} else if (request.getParameter("search") != null) {
-				Searcher searcher = new GetBeans().getSearcher();
-				List<String> result = searcher.search(request.getParameter("search"));
-				for (String url : result) {
-					out.println("<p><a href="+url+" target=_blank>"+url+"</a></p>");
-				}
-				session.removeAttribute("search");
+	<%
+		if (request.getParameter("search") == null) {
+			out.println("<form action=index.jsp>");
+			out.println("Pesquisa: <input type=text name=search><input type=submit name=Pesquisar>");
+			out.println("</form>");
+		} else if (request.getParameter("search") != null) {
+			Searcher searcher = new GetBeans().getSearcher();
+			List<String> result = searcher.search(request.getParameter("search"));
+			for (String url : result) {
+				out.println("<p><a href="+url+" target=_blank>"+url+"</a></p>");
 			}
-		%>
-	</div>
-	<br />
+			session.removeAttribute("search");
+		}
+	%>
 </body>
 </html>
